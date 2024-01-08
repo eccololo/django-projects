@@ -88,3 +88,6 @@ db.sqlite3
 
 # Virtual Environment
 venv
+
+# PyCharm
+.idea
