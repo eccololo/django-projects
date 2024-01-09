@@ -6,7 +6,7 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title"><i class="fa-solid fa-city"></i> City</h5>
-        <form action="" method="post">
+        <form action="{% url 'home' %}" method="post">
             {% csrf_token %}
             {{ air_city_form|bootstrap }}
             <br>
