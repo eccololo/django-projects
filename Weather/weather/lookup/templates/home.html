@@ -1,14 +1,30 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block title %}Home Page{% endblock %}
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ air_city_form }}
-    <input type="submit" value="Submit">
-</form>
-<h1>{{ city_name }}</h1>
-<p>
-    {{ api_content_one }}
-</p>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ air_city_form|bootstrap }}
+            <br>
+            <input type="submit" class="btn btn-warning" value="Submit">
+        </form>
+    </div>
+</div>
+<br>
+<br>
+<div class="card" style="width: 18rem;">
+    <img src="https://placehold.co/100x120/{{ color }}/white?text={{ city_name }}\nLevel+{{ air_level }}+\nQuality+{{ air_quality }}&font=oswald"
+         class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Air for {{ city_name }}</h5>
+        <p class="card-text">
+            Level: {{ air_level }}
+            <br>
+            Quality: {{ air_quality }}
+        </p>
+    </div>
+</div>
 {% endblock %}
