@@ -2,4 +2,4 @@ from django import forms
 
 
 class AirCityForm(forms.Form):
-    city_name = forms.CharField(max_length=60, label="Enter City")
+    city_name = forms.CharField(max_length=60, label="")

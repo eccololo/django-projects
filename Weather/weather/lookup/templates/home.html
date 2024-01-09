@@ -5,11 +5,12 @@
 {% block content %}
 <div class="card" style="width: 18rem;">
     <div class="card-body">
+        <h5 class="card-title"><i class="fa-solid fa-city"></i> City</h5>
         <form action="" method="post">
             {% csrf_token %}
             {{ air_city_form|bootstrap }}
             <br>
-            <input type="submit" class="btn btn-warning" value="Submit">
+            <button type="submit" class="btn btn-warning">Submit <i class="fa-solid fa-share-from-square"></i></button>
         </form>
     </div>
 </div>
@@ -19,7 +20,7 @@
     <img src="https://placehold.co/100x120/{{ color }}/white?text={{ city_name }}\nLevel+{{ air_level }}+\nQuality+{{ air_quality }}&font=oswald"
          class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">Air for {{ city_name }}</h5>
+        <h5 class="card-title"><i class="fa-solid fa-wind"></i> for {{ city_name }}</h5>
         <p class="card-text">
             Level: {{ air_level }}
             <br>
