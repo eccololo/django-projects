@@ -20,6 +20,7 @@ def view_home(request):
     city_id = None
     air_quality_level = "Unknown"
     air_quality_level_name = "Unknown"
+    not_found_msg = ""
 
     # Air Quality APIs from GIOS in Poland.
     gios_endpoint_all_stations = "https://api.gios.gov.pl/pjp-api/rest/station/findAll"
@@ -57,6 +58,9 @@ def view_home(request):
     else:
         city_name = "Uknown"
 
+    if air_quality_level == "Unknown" and air_quality_level_name == "Unknown":
+        not_found_msg = "No data found for this city."
+
     try:
         color = air_quality_colors[air_quality_level]
     except Exception:
@@ -69,7 +73,8 @@ def view_home(request):
         'city_name': city_name,
         'air_level': air_quality_level,
         'air_quality': air_quality_level_name,
-        'color': color
+        'color': color,
+        'not_found_msg': not_found_msg
     })
 
 
