@@ -90,3 +90,6 @@ venv
 
 # PyCharm
 .idea
+
+# Tests
+tests
