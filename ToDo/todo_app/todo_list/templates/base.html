@@ -30,8 +30,9 @@
                     <a class="nav-link" href="{% url 'about_link' %}">About</a>
                 </li>
             </ul>
-            <form class="d-flex me-auto" role="search">
-                <input class="form-control me-2" type="search" placeholder="ToDo Item" aria-label="Search">
+            <form class="d-flex me-auto" role="search" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2" type="search" placeholder="ToDo Item" aria-label="Search" name="item">
                 <button class="btn btn-outline-success mx-1" type="submit"><i class="fa-solid fa-plus"></i></button>
             </form>
         </div>
