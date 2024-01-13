@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block title %} ToDo List | Home {% endblock %}
 {% block content %}
-<h1>Home</h1>
+    {% if all_items %}
+        <ul>
+        {% for item in all_items %}
+            <li>{{ item.item }} | {{ item.completed }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
