@@ -6,7 +6,6 @@
     <caption>Todo Items</caption>
     <thead class="table-light">
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Done</th>
             <th scope="col">Action</th>
@@ -17,7 +16,6 @@
     {% for item in all_items %}
         {% if not item.completed %}
             <tr class="table-primary">
-                <td>{{ item.id }}</td>
                 <td>{{ item.item }}</td>
                 <td>{{ item.completed }}</td>
                 <td>Delete</td>
@@ -28,8 +26,7 @@
     {% for item in all_items %}
         {% if item.completed %}
             <tr class="table-success">
-                <td>{{ item.id }}</td>
-                <td>{{ item.item }}</td>
+                <td class="striker">{{ item.item }}</td>
                 <td>{{ item.completed }}</td>
                 <td>Delete</td>
             </tr>
@@ -39,7 +36,6 @@
     </tbody>
      <tfoot class="table-light">
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Done</th>
             <th scope="col">Action</th>
