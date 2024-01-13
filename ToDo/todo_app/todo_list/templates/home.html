@@ -2,44 +2,53 @@
 {% block title %} ToDo List | Home {% endblock %}
 {% block content %}
 {% if all_items %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissible fade show in" role="alert">
+     <button type="button" class="btn-close close" data-dismiss="alert" aria-label="close"></button>
+     <i class="fa-solid fa-circle-check"></i> {{ message }}
+</div>
+{% endfor %}
+{% endif %}
 <table class="table table-hover caption-top table-responsive">
     <caption>Todo Items</caption>
     <thead class="table-light">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Done</th>
-            <th scope="col">Action</th>
-        </tr>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Done</th>
+        <th scope="col">Action</th>
+    </tr>
     </thead>
     <tbody class="table-group-divider">
 
     {% for item in all_items %}
-        {% if not item.completed %}
-            <tr class="table-primary">
-                <td>{{ item.item }}</td>
-                <td>{{ item.completed }}</td>
-                <td>Delete</td>
-            </tr>
-        {% endif %}
+    {% if not item.completed %}
+    <tr class="table-primary">
+        <td>{{ item.item }}</td>
+        <td>{{ item.completed }}</td>
+        <td>Delete</td>
+    </tr>
+    {% endif %}
     {% endfor %}
 
     {% for item in all_items %}
-        {% if item.completed %}
-            <tr class="table-success">
-                <td class="striker">{{ item.item }}</td>
-                <td>{{ item.completed }}</td>
-                <td>Delete</td>
-            </tr>
-        {% endif %}
+    {% if item.completed %}
+    <tr class="table-success">
+        <td class="striker">{{ item.item }}</td>
+        <td>{{ item.completed }}</td>
+        <td>Delete</td>
+    </tr>
+    {% endif %}
     {% endfor %}
 
     </tbody>
-     <tfoot class="table-light">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Done</th>
-            <th scope="col">Action</th>
-        </tr>
+    <tfoot class="table-light">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Done</th>
+        <th scope="col">Action</th>
+    </tr>
     </tfoot>
 </table>
 {% endif %}

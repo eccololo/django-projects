@@ -1,3 +1,7 @@
 .striker {
     text-decoration: line-through;
 }
+
+.close {
+  font-size: 1.2rem;
+}

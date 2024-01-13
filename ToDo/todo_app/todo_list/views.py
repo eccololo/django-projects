@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import List
 from .forms import ListForm
 
@@ -10,7 +11,7 @@ def render_home(request):
 
         if form_item.is_valid():
             form_item.save()
-
+            messages.success(request, ("Item added"))
             all_items = List.objects.all()
 
             return render(request, template_name="home.html",
