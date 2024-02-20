@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Stock
 import requests
 import json
 
@@ -26,4 +27,5 @@ def about(request):
     return render(request, template_name="about.html", context={})
 
 def add_stock(request):
-    return render(request, template_name="about.html", context={})
+    ticker = Stock.objects.all()
+    return render(request, template_name="add_stock.html", context={"ticker": ticker})
