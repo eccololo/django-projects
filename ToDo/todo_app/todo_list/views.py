@@ -14,13 +14,13 @@ def render_home(request):
             messages.success(request, ("Item added"))
             all_items = List.objects.all()
 
-            return render(request, template_name="home.html",
+            return render(request, template_name="base.html",
                           context={
                               'all_items': all_items
                           })
     else:
         all_items = List.objects.all()
-        return render(request, template_name="home.html",
+        return render(request, template_name="base.html",
                       context={
                           'all_items': all_items
                       })

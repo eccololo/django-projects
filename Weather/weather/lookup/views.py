@@ -66,7 +66,7 @@ def view_home(request):
     except Exception:
         color = 'gray'
 
-    return render(request, template_name="home.html", context={
+    return render(request, template_name="base.html", context={
         # 'api_content_one': api_content_one_station,
         # 'api_content_all': api_content_all_stations,
         'air_city_form': air_city_form,
