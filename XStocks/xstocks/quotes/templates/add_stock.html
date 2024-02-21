@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block title %} Add Stock Page {% endblock %}
 {% block content %}
 <form class="d-flex me-auto" role="search" method="POST" action="{% url 'add_stock' %}">
@@ -27,7 +28,7 @@
         <td><i class="fa-solid fa-coins"></i> {{ item.companyName }}</td>
         <td>${{ item.latestPrice }}</td>
         <td>${{ item.previousClose }}</td>
-        <td>${{ item.marketCap }}</td>
+        <td>${{ item.marketCap|intword }}</td>
         <td>{{ item.ytdChange }}%</td>
         <td>${{ item.week52High }}</td>
         <td>${{ item.week52Low }}</td>
