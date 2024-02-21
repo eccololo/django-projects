@@ -4,6 +4,7 @@ from .models import Stock
 from .forms import StockForm
 import requests
 import json
+from time import sleep
 
 
 def home(request):
@@ -37,7 +38,22 @@ def add_stock(request):
             return redirect("add_stock")
     else:
         ticker = Stock.objects.all()
-        return render(request, template_name="add_stock.html", context={"ticker": ticker})
+        output_apis = []
+        for ticker_item in ticker:
+            public_token = "pk_47ea754a042d4a80afaae8e3b0ba39a4"
+            api_endpoint = f"https://api.iex.cloud/v1/data/core/quote/{str(ticker_item)}?token={public_token}"
+            sleep(0.4)
+            response = requests.get(api_endpoint)
+            try:
+                api_data = json.loads(response.content)
+                api_data = api_data[0]
+                if api_data is None:
+                    api_data = "Error"
+            except Exception as e:
+                api_data = "Error"
+            output_apis.append(api_data)
+        return render(request, template_name="add_stock.html",
+                      context={"ticker": ticker, "output_apis": output_apis})
 
 def delete(request, stock_id):
     item = Stock.objects.get(pk=stock_id)

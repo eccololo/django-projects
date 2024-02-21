@@ -23,19 +23,22 @@
     </tr>
     </thead>
     <tbody>
-{% for item in ticker %}
+{% if ticker %}
+{% for item in output_apis %}
     <tr>
-        <td>{{ item.id }}.</td>
-        <td><i class="fa-solid fa-coins"></i> {{ item }}</td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
-        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+<!--        <td>{{ item.id }}.</td>-->
+        <td>1.</td>
+        <td><i class="fa-solid fa-coins"></i> {{ item.companyName }}</td>
+        <td>${{ item.latestPrice }}</td>
+        <td>${{ item.previousClose }}</td>
+        <td>${{ item.marketCap }}</td>
+        <td>{{ item.ytdChange }}%</td>
+        <td>${{ item.week52High }}</td>
+        <td>${{ item.week52Low }}</td>
+        <td><a class="btn btn-danger btn-sm" href="/">Delete</a></td>
     </tr>
 {% endfor %}
+{% endif %}
     </tbody>
     <tfoot class="table-light">
         <th scope="col">#</th>
@@ -49,6 +52,7 @@
         <th scope="col">Delete</th>
     </tfoot>
 </table>
+<br />
 {% endblock %}
 
 
