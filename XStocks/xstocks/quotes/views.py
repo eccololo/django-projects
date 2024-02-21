@@ -64,3 +64,13 @@ def delete(request, stock_id):
 def delete_stock(request):
     ticker = Stock.objects.all()
     return render(request, template_name="delete_stock.html", context={"ticker": ticker})
+
+def add_to_portfolio(request, stock_symbol):
+    try:
+        Stock.objects.create(ticker=stock_symbol)
+    except Exception:
+        messages.error(request, "We couldn't save this item to portfolio. Change name or try again later.")
+    else:
+        messages.success(request, "Stock item saved successfully!")
+
+    return redirect("home")
