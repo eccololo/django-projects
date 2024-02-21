@@ -14,17 +14,17 @@
     </div>
 </div>
 <div id="data-box" class="d-none">
-    <table class="table table-hover caption-top">
+    <table class="table table-hover caption-top" id="table" data-toggle="table">
         <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
         <thead class="table-light">
         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Previous Close</th>
-            <th scope="col">Market Cap</th>
-            <th scope="col">YTD Change</th>
-            <th scope="col">52Wk High</th>
-            <th scope="col">52Wk Low</th>
+            <th scope="col" data-field="name" data-sortable="true">Name</th>
+            <th scope="col" data-field="price" data-sortable="true">Price</th>
+            <th scope="col" data-field="previous-close" data-sortable="true">Previous Close</th>
+            <th scope="col" data-field="market-cap" data-sortable="true">Market Cap</th>
+            <th scope="col" data-field="ytd-change" data-sortable="true">YTD Change</th>
+            <th scope="col" data-field="52wk-high" data-sortable="true">52Wk High</th>
+            <th scope="col" data-field="52wk-low" data-sortable="true">52Wk Low</th>
         </tr>
         </thead>
         <tbody>

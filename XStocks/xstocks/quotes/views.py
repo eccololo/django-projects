@@ -23,7 +23,8 @@ def home(request):
             api_data = "Error"
         return render(request, template_name="base.html", context={'api_data': api_data})
     else:
-        return render(request, template_name="base.html", context={'ticker': "Use search for finding stocks info."})
+        return render(request, template_name="base.html",
+                      context={'ticker': "Use search for finding stocks info by given stock symbol."})
 
 
 def about(request):
