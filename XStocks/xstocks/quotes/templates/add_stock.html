@@ -8,45 +8,51 @@
     <button class="btn btn-outline-success mx-1" type="submit"><i class="fa-solid fa-plus"></i></button>
 </form>
 <br/>
-<table class="table table-hover caption-top">
-    <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
-    <thead class="table-light">
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Previous Close</th>
-        <th scope="col">Market Cap</th>
-        <th scope="col">YTD Change</th>
-        <th scope="col">52Wk High</th>
-        <th scope="col">52Wk Low</th>
-    </tr>
-    </thead>
-    <tbody>
-{% if ticker %}
-{% for item in output_apis %}
-    <tr>
-        <td><i class="fa-solid fa-coins"></i> {{ item.companyName }}</td>
-        <td>${{ item.latestPrice }}</td>
-        <td>${{ item.previousClose }}</td>
-        <td>${{ item.marketCap|intword }}</td>
-        <td>{{ item.ytdChange }}%</td>
-        <td>${{ item.week52High }}</td>
-        <td>${{ item.week52Low }}</td>
-    </tr>
-{% endfor %}
-{% endif %}
-    </tbody>
-    <tfoot class="table-light">
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Previous Close</th>
-        <th scope="col">Market Cap</th>
-        <th scope="col">YTD Change</th>
-        <th scope="col">52Wk High</th>
-        <th scope="col">52Wk Low</th>
-    </tfoot>
-</table>
-<br />
+<div id="spinner-box" class="text-center mt-3">
+    <div class="spinner-grow text-warning" style="width: 2rem; height: 2rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div id="data-box" class="d-none">
+    <table class="table table-hover caption-top">
+        <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
+        <thead class="table-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Previous Close</th>
+            <th scope="col">Market Cap</th>
+            <th scope="col">YTD Change</th>
+            <th scope="col">52Wk High</th>
+            <th scope="col">52Wk Low</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% if ticker %}
+    {% for item in output_apis %}
+        <tr>
+            <td><i class="fa-solid fa-coins"></i> {{ item.companyName }}</td>
+            <td>${{ item.latestPrice }}</td>
+            <td>${{ item.previousClose }}</td>
+            <td>${{ item.marketCap|intword }}</td>
+            <td>{{ item.ytdChange }}%</td>
+            <td>${{ item.week52High }}</td>
+            <td>${{ item.week52Low }}</td>
+        </tr>
+    {% endfor %}
+    {% endif %}
+        </tbody>
+        <tfoot class="table-light">
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Previous Close</th>
+            <th scope="col">Market Cap</th>
+            <th scope="col">YTD Change</th>
+            <th scope="col">52Wk High</th>
+            <th scope="col">52Wk Low</th>
+        </tfoot>
+    </table>
+</div>
 {% endblock %}
 
 
