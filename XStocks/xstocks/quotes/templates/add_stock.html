@@ -11,7 +11,6 @@
     <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
     <thead class="table-light">
     <tr>
-        <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Previous Close</th>
@@ -19,15 +18,12 @@
         <th scope="col">YTD Change</th>
         <th scope="col">52Wk High</th>
         <th scope="col">52Wk Low</th>
-        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
 {% if ticker %}
 {% for item in output_apis %}
     <tr>
-<!--        <td>{{ item.id }}.</td>-->
-        <td>1.</td>
         <td><i class="fa-solid fa-coins"></i> {{ item.companyName }}</td>
         <td>${{ item.latestPrice }}</td>
         <td>${{ item.previousClose }}</td>
@@ -35,13 +31,11 @@
         <td>{{ item.ytdChange }}%</td>
         <td>${{ item.week52High }}</td>
         <td>${{ item.week52Low }}</td>
-        <td><a class="btn btn-danger btn-sm" href="/">Delete</a></td>
     </tr>
 {% endfor %}
 {% endif %}
     </tbody>
     <tfoot class="table-light">
-        <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Previous Close</th>
@@ -49,7 +43,6 @@
         <th scope="col">YTD Change</th>
         <th scope="col">52Wk High</th>
         <th scope="col">52Wk Low</th>
-        <th scope="col">Delete</th>
     </tfoot>
 </table>
 <br />

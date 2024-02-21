@@ -91,3 +91,6 @@ venv
 
 # PyCharm
 .idea
+
+# Others
+todo.todo

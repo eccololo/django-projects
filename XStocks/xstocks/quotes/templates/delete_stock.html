@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Delete Stock Page {% endblock %}
+{% block content %}
+<h1>Delete Stock.</h1>
+{% if ticker %}
+<table class="table table-hover caption-top">
+    <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
+    <thead class="table-light">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in ticker %}
+    <tr>
+        <td><i class="fa-solid fa-coins"></i> {{ item.ticker }}</td>
+        <td><a class="btn btn-danger btn-sm" href="{% url 'delete' item.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot class="table-light">
+    <th scope="col">Name</th>
+    <th scope="col">Delete</th>
+    </tfoot>
+</table>
+{% else %}
+<p>You don't have any stocks yet.</p>
+{% endif %}
+{% endblock %}
