@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 {% block title %} Add Stock Page {% endblock %}
 {% block content %}
-    <h1>Add Stock.</h1>
+<form class="d-flex me-auto" role="search" method="POST" action="{% url 'add_stock' %}">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Add Stock" aria-label="Search" name="ticker">
+    <button class="btn btn-outline-success mx-1" type="submit"><i class="fa-solid fa-plus"></i></button>
+</form>
+<br/>
+<p>
+    <button class="btn btn-primary toggle-portfolio" type="button">
+        Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span>
+    </button>
+</p>
+<p class="portfolio">
     {% for item in ticker %}
-        {{ item }} <br />
+        <i class="fa-solid fa-coins"></i> {{ item }} <br />
     {% endfor %}
+</p>
 {% endblock %}
+
+
+
+
