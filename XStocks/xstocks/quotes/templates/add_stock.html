@@ -13,7 +13,13 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Action</th>
+        <th scope="col">Price</th>
+        <th scope="col">Previous Close</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">YTD Change</th>
+        <th scope="col">52Wk High</th>
+        <th scope="col">52Wk Low</th>
+        <th scope="col">Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -22,13 +28,25 @@
         <td>{{ item.id }}.</td>
         <td><i class="fa-solid fa-coins"></i> {{ item }}</td>
         <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
     </tr>
 {% endfor %}
     </tbody>
     <tfoot class="table-light">
         <th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">Action</th>
+        <th scope="col">Price</th>
+        <th scope="col">Previous Close</th>
+        <th scope="col">Market Cap</th>
+        <th scope="col">YTD Change</th>
+        <th scope="col">52Wk High</th>
+        <th scope="col">52Wk Low</th>
+        <th scope="col">Delete</th>
     </tfoot>
 </table>
 {% endblock %}
