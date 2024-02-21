@@ -7,16 +7,30 @@
     <button class="btn btn-outline-success mx-1" type="submit"><i class="fa-solid fa-plus"></i></button>
 </form>
 <br/>
-<p>
-    <button class="btn btn-primary toggle-portfolio" type="button">
-        Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span>
-    </button>
-</p>
-<p class="portfolio">
-    {% for item in ticker %}
-        <i class="fa-solid fa-coins"></i> {{ item }} <br />
-    {% endfor %}
-</p>
+<table class="table table-hover caption-top">
+    <caption>Stock Portfolio <span class="badge text-bg-danger">{{ticker|length}}</span></caption>
+    <thead class="table-light">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for item in ticker %}
+    <tr>
+        <td>{{ item.id }}.</td>
+        <td><i class="fa-solid fa-coins"></i> {{ item }}</td>
+        <td><a href="{% url 'delete' item.id %}">Delete</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+    <tfoot class="table-light">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+    </tfoot>
+</table>
 {% endblock %}
 
 

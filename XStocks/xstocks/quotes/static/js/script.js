@@ -1,6 +1,6 @@
 $(function () {
-    $(".portfolio").hide()
-    $(".toggle-portfolio").click(function() {
-        $(".portfolio").toggle()
-    });
+//    $(".table-toggle").hide()
+//    $(".toggle-portfolio").click(function() {
+//        $(".portfolio").toggle()
+//    });
 });
