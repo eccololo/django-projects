@@ -1,4 +1,5 @@
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,8 +32,8 @@ INSTALLED_APPS = [
 ]
 
 # reCaptcha
-RECAPTCHA_PUBLIC_KEY = '6LdVkYApAAAAAMyJ9bOlQhqVnFxhsRt4bqVi6Aa7'
-RECAPTCHA_PRIVATE_KEY = '6LdVkYApAAAAALOp710NPM7X15v8TNMoSBNNV5bx'
+RECAPTCHA_PUBLIC_KEY = '6LdS4YApAAAAAPmIAySLA7_IvSZa08KN5o7ukiCM'
+RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
