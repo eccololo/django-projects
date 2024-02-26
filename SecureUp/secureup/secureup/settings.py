@@ -27,7 +27,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'secureapp',
     'crispy_forms',
+    'django_recaptcha',
 ]
+
+# reCaptcha
+RECAPTCHA_PUBLIC_KEY = '6LdVkYApAAAAAMyJ9bOlQhqVnFxhsRt4bqVi6Aa7'
+RECAPTCHA_PRIVATE_KEY = '6LdVkYApAAAAALOp710NPM7X15v8TNMoSBNNV5bx'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
