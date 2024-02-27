@@ -27,8 +27,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'secureapp',
-    'crispy_forms',
-    'django_recaptcha',
+    'crispy_forms', # for signup form
+    'django_recaptcha', # For reCaptcha
+    'django_otp', # for 2FA
+    'django_otp.plugins.otp_static', # for 2FA
+    'django_otp.plugins.otp_totp', # for 2FA
+    'two_factor', # for 2FA
 ]
 
 # reCaptcha
@@ -37,12 +41,16 @@ RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+LOGIN_URL = 'two_factor:login'
+LOGIN_REDIRECT_URL = 'dashboard'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
