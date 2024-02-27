@@ -10,7 +10,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("home")
+            return redirect("two_factor:login")
     context = {"form": form}
     return render(request, template_name="register.html", context=context)
 
