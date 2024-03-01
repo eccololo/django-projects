@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CreateUserForm
+from django.contrib.auth.models import auth
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, template_name="index.html")
@@ -14,5 +16,10 @@ def register(request):
     context = {"form": form}
     return render(request, template_name="register.html", context=context)
 
+@login_required(login_url="two_factor:login")
 def dashboard(request):
     return render(request, template_name="dashboard.html")
+
+def user_logout(request):
+    auth.logout(request)
+    return redirect("home")
