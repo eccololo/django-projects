@@ -20,7 +20,8 @@
 <div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
     <h5>About SecureUp</h5>
     <br />
-    <p>SecureUp is Web App written in Django that implements security measures like 2FA, reCaptcha and others.</p>
+    <p>SecureUp is Web App written in Django that implements security measures like 2FA, reCaptcha, 
+      auto-logout and others.</p>
 </div>
 <br />
 <div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
@@ -33,5 +34,7 @@
     <a href="{% url 'two_factor:profile' %}" class="btn btn-primary navbar-btn" type="button">2FA Settings</a>  
 </div>
 <br /><br />
+<!-- Auto-Logout -->
+{{ redirect_to_login_immediately }} 
 {% endblock %}
 
