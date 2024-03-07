@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_otp.plugins.otp_static', # for 2FA
     'django_otp.plugins.otp_totp', # for 2FA
     'two_factor', # for 2FA
+    'axes', # Anti-Brute-Force Attacks
 ]
 
 # reCaptcha
@@ -65,6 +66,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_auto_logout.middleware.auto_logout', # Auto-Logout
+    'axes.middleware.AxesMiddleware', # For Anti-Brute-Force Attacks
+]
+
+# For Anti-Brute-Force Attacks
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'secureup.urls'
@@ -152,3 +163,10 @@ AUTO_LOGOUT = {
     # 'MESSAGE': 'The session has expired. Please login again to continue.',
     'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
 }
+
+# Anti-Brute-Force Attacks configuration settings.
+AXES_FAILURE_LIMIT: 3 # How many times user can fail in login.
+AXES_COOLOFF_TIME: 2 # Wait 1 hour before user can attempt to login again.
+AXES_RESET_ON_SUCCESS = True # Reset failed login attempts when login correctly.
+AXES_LOCKOUT_TEMPLATE = 'account-locked.html' # Add a custom template on failure.
+AXES_LOCKOUT_PARAMETERS = ["username"] # Admin users are not influenced by failed login attempts.
