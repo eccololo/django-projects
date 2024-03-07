@@ -23,3 +23,7 @@ def dashboard(request):
 def user_logout(request):
     auth.logout(request)
     return redirect("home")
+
+
+def account_locked(request):
+    return render(request, template_name="account-locked.html")
