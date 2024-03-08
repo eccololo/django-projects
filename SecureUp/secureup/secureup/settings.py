@@ -170,3 +170,16 @@ AXES_COOLOFF_TIME: 2 # Wait 1 hour before user can attempt to login again.
 AXES_RESET_ON_SUCCESS = True # Reset failed login attempts when login correctly.
 AXES_LOCKOUT_TEMPLATE = 'account-locked.html' # Add a custom template on failure.
 AXES_LOCKOUT_PARAMETERS = ["username"] # Admin users are not influenced by failed login attempts.
+
+# Password Management - Reset
+
+# 1. Mandatory Parameters.
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = "587"
+EMAIL_USE_TLS = "True"
+
+# 2. Other parameters.
+EMAIL_HOST_USER = "mateusz.hyla.job@gmail.com" # Your email address.
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD") # Your gmail App Password.
+DEFAULT_FROM_EMAIL = "mateusz.hyla.job@gmail.com" # Your email address.
