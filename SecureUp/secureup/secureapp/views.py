@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import CreateUserForm
 from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def home(request):
     return render(request, template_name="index.html")
@@ -22,6 +23,7 @@ def dashboard(request):
 
 def user_logout(request):
     auth.logout(request)
+    messages.success(request, "Logout success!")
     return redirect("home")
 
 
