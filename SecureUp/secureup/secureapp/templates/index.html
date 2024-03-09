@@ -43,7 +43,7 @@
     {% for message in messages %}
     
         {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-            <p id="message" class="alert alert-success  float-center text-center message-text">{{ message }}</p>
+            <p id="message-timer" class="alert alert-success  float-center text-center"><i class="fa-solid fa-check"></i> &nbsp; {{ message }} </p>
         {% endif %}
     {% endfor %}
 {% endif %}    
