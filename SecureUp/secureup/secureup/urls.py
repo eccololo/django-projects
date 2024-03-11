@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from two_factor.urls import urlpatterns as tf_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('secure-center/', admin.site.urls),
     path('', include("secureapp.urls")),
     # for 2FA
     path('', include(tf_urls)),

@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("MY_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -183,3 +183,27 @@ EMAIL_USE_TLS = "True"
 EMAIL_HOST_USER = "mateusz.hyla.job@gmail.com" # Your email address.
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD") # Your gmail App Password.
 DEFAULT_FROM_EMAIL = "mateusz.hyla.job@gmail.com" # Your email address.
+
+# Deployment Settings (Must be https enabled on hosting - doesn't work on localhost where
+# there is http only).
+
+# UNCOMMENT ON PRODUCTION
+# 1. Protection Against XSS Attacks.
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# 2. CSRF Token Protection
+# SESSION_COOKIE_SECURE = True 
+# CSRF_COOKIES_SECURE = True
+
+# 3. SSL Redirect
+# SECURE_SSL_REDIRECT = True
+
+# 4. Enable HSTS (Anti Man-In-The-Middle Attack - force connection over https)
+# SECURE_HSTS_SECONDS = 86400
+# SECURE_HSTS_PRELOAD = True
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# 5. CSP (Content Security Policy - when web app has a lot of styles and inline styles
+# - prevents code injectings and XSS attacks).
+
