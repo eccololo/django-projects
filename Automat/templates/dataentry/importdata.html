@@ -2,5 +2,34 @@
 {% load static %}
 {% block title %}Automat - Import Data{% endblock %} 
 {% block content %}
-<h1>Import Data</h1>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-white justify-content-center"
+>
+  <a class="navbar-brand main-heading" href="{% url 'home' %}"> &nbsp; Automat </a>
+
+</nav>
+<br /><br />
+<div class="container bg-white shadow-md px-5 pb-3 pt-4 form-layout">
+    <br />
+    <h3 class="text-center">Import Data to Database Tables</h3>
+    <br />
+    <form action="{% url 'import_data' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="file_path">Upload CSV File</label>
+            <input type="file" name="file_path" class="form-control">
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="model_name">Select DB Table</label>
+            <select name="model_name" class="form-control">
+                <option value="" disabled selected>Select</option>
+                <option value="">Demo Model</option>
+            </select>
+        </div>
+        <br /><br />
+        <input type="submit" value="Import Data" class="btn btn-info">
+        <br /><br />
+    </form>
+</div>
 {% endblock %}
