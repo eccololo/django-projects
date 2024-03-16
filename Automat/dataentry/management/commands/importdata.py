@@ -28,10 +28,12 @@ class Command(BaseCommand):
         if not model:
             raise CommandError(f"Model '{model_name}' not found in any app.")
 
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8-sig") as file:
             reader = csv.DictReader(file)
             
             for row in reader:
+                # Remove unexpected keys (like BOM) from row
+                row = {key.strip('\ufeff'): value for key, value in row.items()}
                 model.objects.create(**row)
 
         self.stdout.write(self.style.SUCCESS("Data imported from CSV file successfully!"))
