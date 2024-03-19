@@ -23,10 +23,8 @@ def import_data(request):
 
         full_file_path = base_url + relative_file_path
 
-        # Trigger the data import command.
-        # FIXME:
-        # 1. During calling this command error occures.
         try:
+            # Trigger the data import command.
             call_command('importdata', full_file_path, model_name)
         except Exception as e:
             raise e
