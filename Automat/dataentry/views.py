@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.management import call_command
+from django.contrib import messages
 from .utils import get_all_custom_models
 from uploads.models import Upload
 import platform
@@ -26,8 +27,9 @@ def import_data(request):
         try:
             # Trigger the data import command.
             call_command('importdata', full_file_path, model_name)
+            messages.success(request, "Data imported successfully!")
         except Exception as e:
-            raise e
+            messages.error(request, str(e))
 
         return redirect("import_data")
     else:

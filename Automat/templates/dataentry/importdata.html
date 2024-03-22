@@ -17,12 +17,12 @@
         {% csrf_token %}
         <div class="form-group">
             <label for="file_path">Upload CSV File</label>
-            <input type="file" name="file_path" class="form-control">
+            <input type="file" name="file_path" class="form-control" required>
         </div>
         <br />
         <div class="form-group">
             <label for="model_name">Select DB Table</label>
-            <select name="model_name" class="form-control">
+            <select name="model_name" class="form-control" required>
                 <option value="" disabled selected>Select</option>
                 {% for model in custom_models %}
                     <option value="{{ model }}">{{ model }}</option>
@@ -31,6 +31,7 @@
         </div>
         <br /><br />
         <input type="submit" value="Import Data" class="btn btn-info">
+        {% include 'alerts.html' %}
         <br /><br />
     </form>
 </div>
