@@ -113,3 +113,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = ['ecommerce/static']
 
+# For custom user model.
+AUTH_USER_MODEL = 'accounts.Account'
