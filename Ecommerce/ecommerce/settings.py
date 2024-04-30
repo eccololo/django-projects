@@ -115,3 +115,7 @@ STATICFILES_DIRS = ['ecommerce/static']
 
 # For custom user model.
 AUTH_USER_MODEL = 'accounts.Account'
+
+# Media files configuration.
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / 'media'
