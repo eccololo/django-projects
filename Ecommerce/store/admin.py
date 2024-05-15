@@ -7,8 +7,8 @@ class ProductAdmin(admin.ModelAdmin):
         "slug": ["product_name"]
     }
 
-    list_display = ["product_name", "price", "category", "stock", "is_available", "modified_date"]
-    list_filter = ["price"]
+    list_display = ["product_name", "price", "category", "stock", "modified_date", "is_available"]
+    list_filter = ["is_available"]
     search_fields = ["product_name", "description"]
 
 admin.site.register(Product, ProductAdmin)
