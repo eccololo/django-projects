@@ -1,5 +1,6 @@
 from django.db import models
 from category.models import Category
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Product(models.Model):
 
@@ -10,6 +11,7 @@ class Product(models.Model):
     images = models.ImageField(upload_to='photos/products/')
     stock = models.IntegerField()
     is_available = models.BooleanField(default=True)
+    discount = models.IntegerField(validators=[MinValueValidator(5), MaxValueValidator(100)])
 
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)

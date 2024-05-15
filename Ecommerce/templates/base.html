@@ -8,7 +8,7 @@
 <meta http-equiv="cache-control" content="max-age=604800" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>GreatKart | One of the Biggest Online Shopping Platform</title>
+<title>{% block title %}{% endblock %}</title>
 
 <!-- Favicon  -->
 <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
@@ -50,3 +50,4 @@ $(document).ready(function() {
 {% endblock %}
 {% include 'includes/footer.html' %}
 </body>
+</html>
