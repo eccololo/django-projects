@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 <!-- FIXME: -->
-<!-- 1. Fix old price custom tag for old price in product cart. -->
 {% load old_price %}
+<!-- 
+    1. Study about custom tags and filters more. 
+    2. Reconfigure Product model - add base price and discount.
+    3. Display base price in corssed section.
+    4. Create custom filter that will calculate discouted price.
+    5. Display discounted price in real price section using custom filter.
+-->
 {% block title %}GreatKart | Store{% endblock %}
 {% block content %}
 
