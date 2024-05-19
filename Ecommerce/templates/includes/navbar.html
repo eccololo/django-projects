@@ -40,8 +40,8 @@
                          1. There are no data on frontend with category names.
                 -->
                 <div class="dropdown-menu">
-                    {% for category in category_data %}
-                    <a class="dropdown-item" href="#">{{ category.name }}</a>
+                    {% for category in links %}
+                        <a class="dropdown-item" href="#">{{ category.name }}</a>
                     {% endfor %}
                 </div>
             </div>  <!-- category-wrap.// -->
