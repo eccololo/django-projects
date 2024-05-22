@@ -36,12 +36,9 @@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> 
                     <i class="fa fa-bars"></i> All category 
                 </button>
-                <!-- FIXME:
-                         1. There are no data on frontend with category names.
-                -->
                 <div class="dropdown-menu">
                     {% for category in links %}
-                        <a class="dropdown-item" href="#">{{ category.name }}</a>
+                        <a class="dropdown-item" href="{{ category.get_url }}">{{ category.name }}</a>
                     {% endfor %}
                 </div>
             </div>  <!-- category-wrap.// -->
