@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from category.models import Category
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -24,3 +25,6 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.product_name
+    
+    def get_url(self):
+        return reverse("product_detail")
