@@ -1,14 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-<!-- FIXME: -->
 {% load old_price %}
-<!-- 
-    1. Study about custom tags and filters more. 
-    2. Reconfigure Product model - add base price and discount.
-    3. Display base price in corssed section.
-    4. Create custom filter that will calculate discouted price.
-    5. Display discounted price in real price section using custom filter.
--->
 {% block title %}GreatKart | Store{% endblock %}
 {% block content %}
 
@@ -149,8 +141,8 @@
                     <div class="fix-height">
                         <a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
                         <div class="price-wrap mt-2">
-                            <span class="price">${{ product.price }}</span>
-                            <del class="price-old">${{ product.price|add:"1000"}}</del>
+                            <span class="price">${% calculate_old_price product.price product.discount %}</span>
+                            <del class="price-old">${{ product.price }}</del>
                         </div> <!-- price-wrap.// -->
                     </div>
                     <a href="#" class="btn btn-block btn-primary">Add</a>

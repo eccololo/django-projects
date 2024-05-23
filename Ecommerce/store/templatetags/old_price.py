@@ -1,6 +1,11 @@
 from django import template
 register = template.Library()
 
+
+def prepare_discount(discount):
+    return (100 - discount) / 100
+
 @register.simple_tag()
-def calculate_old_price(discounted_price, discount, *args, **kwargs):
-    return int(discounted_price * (1 + (discount / 10)))
+def calculate_old_price(discounted_price, discount):
+    output = int(discounted_price * prepare_discount(discount))
+    return output
