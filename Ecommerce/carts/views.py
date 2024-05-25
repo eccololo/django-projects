@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from store.models import Product
 from .models import Cart, CartItem
 
@@ -39,5 +40,5 @@ def add_cart(request, product_id):
         )
     
     cart_item.save()
-
-    return redirect("cart")
+    return HttpResponse(cart_item.product)
+    # return redirect("cart")
