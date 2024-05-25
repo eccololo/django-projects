@@ -28,3 +28,6 @@ class Product(models.Model):
     
     def get_url(self):
         return reverse("product_detail", args=[self.category.slug, self.slug])
+    
+    def discounted_price(self):
+        return int(self.price * ((100 - self.discount) / 100))

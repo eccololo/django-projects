@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load old_price %}
 {% block title %}GreatKart | Store{% endblock %}
 {% block content %}
 
@@ -141,7 +140,7 @@
                     <div class="fix-height">
                         <a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
                         <div class="price-wrap mt-2">
-                            <span class="price">${% calculate_old_price product.price product.discount %}</span>
+                            <span class="price">${{ product.discounted_price  }}</span>
                             <del class="price-old">${{ product.price }}</del>
                         </div> <!-- price-wrap.// -->
                     </div>

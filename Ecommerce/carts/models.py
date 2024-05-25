@@ -19,3 +19,12 @@ class CartItem(models.Model):
 
     def __str__(self):
         return self.product
+    
+    def sub_total(self):
+        return self.product.price * self.quantity
+    
+    def discounted_cart_price(self):
+        return int(self.product.price * ((100 - self.product.discount) / 100))
+    
+    def discounted_cart_sub_total_price(self):
+        return int(self.sub_total() * ((100 - self.product.discount) / 100))
